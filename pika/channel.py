@@ -521,7 +521,7 @@ class Channel(object):
         # causing the _on_openok method to suppress the OPEN state transition
         # and the on-channel-open-callback
 
-        LOGGER.info('Closing channel (%s): %r on %s',
+        LOGGER.debug('Closing channel (%s): %r on %s',
                     reply_code, reply_text, self)
 
         for consumer_tag in dictkeys(self._consumers):
@@ -1083,7 +1083,7 @@ class Channel(object):
             method
 
         """
-        LOGGER.info('Received %s on %s', method_frame.method, self)
+        LOGGER.debug('Received %s on %s', method_frame.method, self)
 
         self._set_state(self.CLOSED)
 
